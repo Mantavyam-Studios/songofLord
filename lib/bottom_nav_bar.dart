@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
             items: [
               BottomBarItem(
                 icon: Icon(
-                  _selectedIndex == 0 ? Icons.home : Icons.home_outlined,  // Solid when selected
+                  _selectedIndex == 0 ? Icons.home : Icons.home_outlined,
                   color: _selectedIndex == 0 ? Colors.black : Colors.white,
                 ),
                 title: Text(''),
@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               BottomBarItem(
                 icon: Icon(
-                  _selectedIndex == 1 ? Icons.bookmark : Icons.bookmark_border,  // Solid when selected
+                  _selectedIndex == 1 ? Icons.bookmark : Icons.bookmark_border,
                   color: _selectedIndex == 1 ? Colors.black : Colors.white,
                 ),
                 title: Text(''),
@@ -68,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   'assets/icons/sword.png',
                   width: 30,
                   height: 30,
-                  color: _selectedIndex == 2 ? Colors.black : Colors.white,  // Change color when selected
+                  color: _selectedIndex == 2 ? Colors.black : Colors.white,
                 ),
                 title: Text(''),
                 selectedColor: Colors.black,
@@ -76,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               BottomBarItem(
                 icon: Icon(
-                  _selectedIndex == 3 ? Icons.tune : Icons.tune_outlined,  // Solid when selected
+                  _selectedIndex == 3 ? Icons.tune : Icons.tune_outlined,
                   color: _selectedIndex == 3 ? Colors.black : Colors.white,
                 ),
                 title: Text(''),
