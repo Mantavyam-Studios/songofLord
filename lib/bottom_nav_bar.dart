@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:stylish_bottom_bar/stylish_bottom_bar.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -13,8 +13,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   static const List<Widget> _widgetOptions = <Widget>[
     Text('Home Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-    Text('Search Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-    Text('Profile Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+    Text('Bookmark Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+    Text('Character Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
     Text('Setting Page', style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
   ];
 
@@ -33,45 +33,60 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
-      bottomNavigationBar:
-      Padding(
+      bottomNavigationBar: Padding(
         padding: const EdgeInsets.only(left: 30, right: 30, bottom: 30),
-        child: StylishBottomBar(
-          backgroundColor: CupertinoColors.lightBackgroundGray,
-          option: AnimatedBarOptions(
-            iconSize: 32,
-            barAnimation: BarAnimation.fade,
-            iconStyle: IconStyle.animated,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(25),
+          child: StylishBottomBar(
+            backgroundColor: CupertinoColors.lightBackgroundGray,
+            option: AnimatedBarOptions(
+              iconSize: 40,
+              barAnimation: BarAnimation.fade,
+              iconStyle: IconStyle.animated,
+            ),
+            items: [
+              BottomBarItem(
+                icon: Icon(
+                  _selectedIndex == 0 ? Icons.home : Icons.home_outlined,  // Solid when selected
+                  color: _selectedIndex == 0 ? Colors.black : Colors.white,
+                ),
+                title: Text(''),
+                selectedColor: Colors.black,
+                unSelectedColor: Colors.white,
+              ),
+              BottomBarItem(
+                icon: Icon(
+                  _selectedIndex == 1 ? Icons.bookmark : Icons.bookmark_border,  // Solid when selected
+                  color: _selectedIndex == 1 ? Colors.black : Colors.white,
+                ),
+                title: Text(''),
+                selectedColor: Colors.black,
+                unSelectedColor: Colors.white,
+              ),
+              BottomBarItem(
+                icon: Image.asset(
+                  'assets/icons/sword.png',
+                  width: 30,
+                  height: 30,
+                  color: _selectedIndex == 2 ? Colors.black : Colors.white,  // Change color when selected
+                ),
+                title: Text(''),
+                selectedColor: Colors.black,
+                unSelectedColor: Colors.white,
+              ),
+              BottomBarItem(
+                icon: Icon(
+                  _selectedIndex == 3 ? Icons.tune : Icons.tune_outlined,  // Solid when selected
+                  color: _selectedIndex == 3 ? Colors.black : Colors.white,
+                ),
+                title: Text(''),
+                selectedColor: Colors.black,
+                unSelectedColor: Colors.white,
+              ),
+            ],
+            currentIndex: _selectedIndex,
+            onTap: _onItemTapped,
           ),
-          items: [
-            BottomBarItem(
-              icon: Icon(Icons.home, ),
-              title: Text(''),
-              selectedColor: Colors.black,
-              unSelectedColor: Colors.white,
-            ),
-            BottomBarItem(
-              icon: Icon(Icons.search,),
-              title: Text(''),
-              selectedColor: Colors.black,
-              unSelectedColor: Colors.white,
-
-            ),
-            BottomBarItem(
-              icon: FaIcon(FontAwesomeIcons.shield),
-              title: Text(''),
-              selectedColor: Colors.black,
-              unSelectedColor: Colors.white,
-            ),
-            BottomBarItem(
-              icon: Icon(Icons.tune),
-              title: Text(''),
-              selectedColor: Colors.black,
-              unSelectedColor: Colors.white,
-            ),
-          ],
-          currentIndex: _selectedIndex,
-          onTap: _onItemTapped,
         ),
       ),
     );
